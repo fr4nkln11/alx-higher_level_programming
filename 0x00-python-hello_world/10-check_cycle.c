@@ -61,6 +61,7 @@ int check_cycle(listint_t *list)
 	{
 		if (node_exists(a_head, current))
 		{
+			free_address_list(a_head);
 			return (1);
 		}
 		else
@@ -70,5 +71,6 @@ int check_cycle(listint_t *list)
 		}
 	}
 
+	free_address_list(a_head);
 	return (0);
 }
