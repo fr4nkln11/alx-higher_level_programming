@@ -1,2 +1,5 @@
 #!/usr/bin/python3
-print("abcdefghijklmnopqrstuvwxyz", end="")
+ascii_char = 97
+while ascii_char < 123:
+    print("{}".format(chr(ascii_char)), end="")
+    ascii_char += 1
