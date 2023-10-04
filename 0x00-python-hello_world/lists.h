@@ -14,6 +14,7 @@
 typedef struct listint_s
 {
 	int n;
+	int flag;
 	struct listint_s *next;
 } listint_t;
 
