@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * traverse_insert - traverse the linked list to find a position to insert
@@ -19,17 +20,20 @@ listint_t *traverse_insert(listint_t *head, listint_t *new_node)
 		if (current->n < new_node->n)
 		{
 			temp = current;
-			current = current->next;
+			if (current->next == NULL)
+			{
+				current->next = new_node;
+				return (new_node);
+			}
+			else
+			{
+				current = current->next;
+			}
 		}
 		else if (current->n >= new_node->n)
 		{
 			temp->next = new_node;
 			new_node->next = current;
-			return (new_node);
-		}
-		else if (current->next == NULL)
-		{
-			current->next = new_node;
 			return (new_node);
 		}
 	}
