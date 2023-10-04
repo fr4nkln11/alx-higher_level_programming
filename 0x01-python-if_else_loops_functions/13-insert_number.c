@@ -21,10 +21,15 @@ listint_t *traverse_insert(listint_t *head, listint_t *new_node)
 			temp = current;
 			current = current->next;
 		}
-		else
+		else if (current->n >= new_node->n)
 		{
 			temp->next = new_node;
 			new_node->next = current;
+			return (new_node);
+		}
+		else if (current->next == NULL)
+		{
+			current->next = new_node;
 			return (new_node);
 		}
 	}
