@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-def easy_print():
+def easy():
     print("#pythoniscool")
