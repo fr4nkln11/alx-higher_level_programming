@@ -21,5 +21,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
     sum_a = new_tup_a[0] + new_tup_b[0]
     sum_b = new_tup_a[1] + new_tup_b[1]
 
-
     return (sum_a, sum_b)
