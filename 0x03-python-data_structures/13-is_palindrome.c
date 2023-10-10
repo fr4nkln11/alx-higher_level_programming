@@ -110,39 +110,44 @@ int pop_node_stack(node_stack_t **head)
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head;
-	listint_t *fast = *head;
-	node_stack_t *node_stack_head = NULL;
-
-	add_to_node_stack(&node_stack_head, slow->n);
-
-	while (slow)
+	if (head && *head)
 	{
-		if (fast->next)
-			fast = fast->next->next;
-		else
+		listint_t *slow = *head;
+		listint_t *fast = *head;
+		node_stack_t *node_stack_head = NULL;
+
+		if ((*head)->next == NULL)
+			return (1);
+
+		add_to_node_stack(&node_stack_head, slow->n);
+		while (slow)
 		{
-			fast = fast->next;
+			if (fast->next)
+				fast = fast->next->next;
+			else
+			{
+				fast = fast->next;
+				pop_node_stack(&node_stack_head);
+			}
+			if (!fast)
+				break;
+
+			slow = slow->next;
+			add_to_node_stack(&node_stack_head, slow->n);
+		}
+		slow = slow->next;
+		while (slow)
+		{
+			if (slow->n != node_stack_head->n)
+			{
+				free_node_stack(node_stack_head);
+				return (0);
+			}
+			slow = slow->next;
 			pop_node_stack(&node_stack_head);
 		}
-		if (!fast)
-			break;
 
-		slow = slow->next;
-		add_to_node_stack(&node_stack_head, slow->n);
+		free_node_stack(node_stack_head);
 	}
-	slow = slow->next;
-	while (slow)
-	{
-		if (slow->n != node_stack_head->n)
-		{
-			free_node_stack(node_stack_head);
-			return (0);
-		}
-		slow = slow->next;
-		pop_node_stack(&node_stack_head);
-	}
-
-	free_node_stack(node_stack_head);
 	return (1);
 }
