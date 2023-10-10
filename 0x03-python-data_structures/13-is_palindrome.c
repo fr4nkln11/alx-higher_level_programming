@@ -13,7 +13,6 @@
 int reverse_traverse(listint_t **head, listint_t *node)
 {
 	int status;
-	listint_t *temp;
 
 	if (node == NULL)
 		return (1);
@@ -26,9 +25,7 @@ int reverse_traverse(listint_t **head, listint_t *node)
 	if (node->n != (*head)->n)
 		return (0);
 
-	temp = *head;
 	*head = (*head)->next;
-	free(temp);
 
 	return (1);
 }
@@ -42,12 +39,14 @@ int reverse_traverse(listint_t **head, listint_t *node)
 
 int is_palindrome(listint_t **head)
 {
+	listint_t *cursor = *head;
+
 	if (head && *head)
 	{
 		if ((*head)->next == NULL)
 			return (1);
 
-		return (reverse_traverse(head, *head));
+		return (reverse_traverse(&cursor, *head));
 	}
 
 	return (1);

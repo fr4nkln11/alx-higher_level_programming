@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * main - check the code for
+ * main - create even numbered list palindrome and check if it is a palindrome
  *
  * Return: Always 0.
  */
