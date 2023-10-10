@@ -35,10 +35,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
-node_stack_t *add_to_node_stack(node_stack_t **head, const int n);
-int pop_node_stack(node_stack_t **head);
-size_t print_node_stack(const node_stack_t *h);
-void free_node_stack(node_stack_t *head);
+int reverse_traverse(listint_t **head, listint_t *node);
 
 
 #endif /* LISTS_H */
