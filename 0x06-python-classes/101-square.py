@@ -125,6 +125,7 @@ class Square:
             for k in range(self.__position[1]):
                 repr_string.append("")
             for i in range(self.__size):
-                repr_string.append((" " * self.__position[0]) + ("#" * self.__size))
+                repr_string.append(
+                        (" " * self.__position[0]) + ("#" * self.__size))
 
         return "\n".join(repr_string)
