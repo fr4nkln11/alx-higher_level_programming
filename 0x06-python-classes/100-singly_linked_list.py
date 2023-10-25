@@ -99,7 +99,7 @@ class SinglyLinkedList:
             # There is no head node
             # let new_node be the head node
             self.__head = new_node
-        elif value < self.__head.data:
+        elif value <= self.__head.data:
             temp_node = self.__head
             self.__head = new_node
             self.__head.next_node = temp_node
@@ -117,7 +117,7 @@ class SinglyLinkedList:
                     # then the current node should be inserted
                     # at the end of the list
 
-                    if cursor == None:
+                    if cursor is None:
                         prev_node.next_node = new_node
                 else:
                     new_node.next_node = cursor
@@ -133,4 +133,3 @@ class SinglyLinkedList:
             cursor = cursor.next_node
 
         return "\n".join(linked_list)
-
