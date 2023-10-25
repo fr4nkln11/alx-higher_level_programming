@@ -47,7 +47,10 @@ class Square:
 
         if type(position) is tuple and len(position) == 2:
             for i in position:
-                if i < 0 or not type(i) is int:
+                if not type(i) is int:
+                    raise TypeError(
+                            "position must be a tuple of 2 positive integers")
+                if i < 0:
                     raise TypeError(
                             "position must be a tuple of 2 positive integers")
         else:

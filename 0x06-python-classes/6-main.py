@@ -20,3 +20,5 @@ mysquare = Square(5, (3, 2))
 mysquare.my_print()
 
 print("--")
+
+my_square = Square(3, (1, "3"))
