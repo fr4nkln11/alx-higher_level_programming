@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Detect instance deletion
+""" How many instances
 This module defines a class Rectangle
 """
 
