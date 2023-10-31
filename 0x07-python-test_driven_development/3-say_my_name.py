@@ -5,6 +5,16 @@ This module defines a function say_my_name
 
 
 def say_my_name(first_name, last_name=""):
+    """ print a string with the format
+    My name is <first name> <last name>
+
+    Params:
+        @first_name: string
+        @last_name: string
+
+    Returns:
+        None
+    """
     if not type(first_name) is str:
         raise TypeError("first_name must be a string")
 
