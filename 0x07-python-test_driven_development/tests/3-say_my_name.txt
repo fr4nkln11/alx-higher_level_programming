@@ -1,6 +1,6 @@
 >>> say_my_name = __import__('3-say_my_name').say_my_name
->>> say_my_name("John", "Smith")
-My name is John Smith
+>>> say_my_name("Frank", "Sinatra")
+My name is Frank Sinatra
 >>> say_my_name("Bob")
 My name is Bob 
 >>> say_my_name("")
@@ -13,6 +13,8 @@ My name is
 My name is    
 >>> say_my_name("&@&", "()")
 My name is &@& ()
+>>> say_my_name("Frank", "(42)")
+My name is Frank (42)
 >>> say_my_name(12, "White")
 Traceback (most recent call last):
 ...

@@ -193,17 +193,17 @@ def solve(N: int):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: nqueens N")
+        sys.stderr.write("Usage: nqueens N\n")
         exit(1)
 
     try:
         N = int(sys.argv[1])
     except ValueError:
-        print("N must be a number")
+        sys.stderr.write("N must be a number\n")
         exit(1)
 
     if N < 4:
-        print("N must be at least 4")
+        sys.stderr.write("N must be at least 4\n")
         exit(1)
 
     solve(N)
