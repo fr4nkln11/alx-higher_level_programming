@@ -4,6 +4,7 @@ import sys
 
 solutions = []
 
+
 def print_board(board: list[list[int]]) -> None:
     """
     print out the NxN board
@@ -31,6 +32,7 @@ def print_board(board: list[list[int]]) -> None:
         if row != (N - 1):
             print(("|---" * N) + "|")
 
+
 def print_cords(board: list[list[int]]) -> None:
     N = len(board)
     cords_list = []
@@ -40,7 +42,11 @@ def print_cords(board: list[list[int]]) -> None:
 
     print(cords_list)
 
-def checkVaild(board:list[list[int]], N:int, row_pos: int, col_pos:int) -> bool:
+
+def checkVaild(
+        board: list[list[int]],
+        N: int,
+        row_pos: int, col_pos: int) -> bool:
     """
     a function to check if the current position
     is not under attack
@@ -74,7 +80,7 @@ def checkVaild(board:list[list[int]], N:int, row_pos: int, col_pos:int) -> bool:
     # check upper left
     temp_row_pos, temp_col_pos = row_pos, col_pos
 
-    while (temp_row_pos >= 0 and temp_col_pos >= 0):
+    while temp_row_pos >= 0 and temp_col_pos >= 0:
         if board[temp_row_pos][temp_col_pos] == 1:
             return False
         temp_row_pos -= 1
@@ -83,7 +89,7 @@ def checkVaild(board:list[list[int]], N:int, row_pos: int, col_pos:int) -> bool:
     # check lower right
     temp_row_pos, temp_col_pos = row_pos, col_pos
 
-    while (temp_row_pos < N and temp_col_pos < N):
+    while temp_row_pos < N and temp_col_pos < N:
         if board[temp_row_pos][temp_col_pos] == 1:
             return False
         temp_row_pos += 1
@@ -92,7 +98,7 @@ def checkVaild(board:list[list[int]], N:int, row_pos: int, col_pos:int) -> bool:
     # check upper right
     temp_row_pos, temp_col_pos = row_pos, col_pos
 
-    while (temp_row_pos >= 0 and temp_col_pos < N):
+    while temp_row_pos >= 0 and temp_col_pos < N:
         if board[temp_row_pos][temp_col_pos] == 1:
             return False
         temp_row_pos -= 1
@@ -101,13 +107,14 @@ def checkVaild(board:list[list[int]], N:int, row_pos: int, col_pos:int) -> bool:
     # check lower left
     temp_row_pos, temp_col_pos = row_pos, col_pos
 
-    while (temp_row_pos < N and  temp_col_pos >= 0):
+    while temp_row_pos < N and temp_col_pos >= 0:
         if board[temp_row_pos][temp_col_pos] == 1:
             return False
         temp_row_pos += 1
         temp_col_pos -= 1
 
     return True
+
 
 def find_empty_row(board: list[list[int]]) -> None | int:
     """
@@ -126,6 +133,7 @@ def find_empty_row(board: list[list[int]]) -> None | int:
         if 1 not in board[row]:
             return row
     return None
+
 
 def backtrack(board: list[list[int]], starting_col: int = 0) -> bool:
     """
@@ -146,7 +154,7 @@ def backtrack(board: list[list[int]], starting_col: int = 0) -> bool:
     # scan for an empty row
     empty_row = find_empty_row(board)
 
-    if empty_row == None:
+    if empty_row is None:
         solutions.append(board)
         last_stop = board[0].index(1)
 
@@ -166,7 +174,8 @@ def backtrack(board: list[list[int]], starting_col: int = 0) -> bool:
             board[empty_row][col] = 0
     return False
 
-def solve(N:int):
+
+def solve(N: int):
     """
     initiate the solving process
 
@@ -180,6 +189,7 @@ def solve(N:int):
     board = [[0] * N for i in range(N)]
 
     backtrack(board)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -199,6 +209,6 @@ if __name__ == "__main__":
     solve(N)
 
     for solution in solutions:
-        #print_board(solution)
+        # print_board(solution)
         print_cords(solution)
-        #print()
+        # print()
