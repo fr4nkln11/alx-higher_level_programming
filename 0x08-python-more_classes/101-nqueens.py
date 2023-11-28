@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+"""
+This program solves the N Queens problem
+using backtracking
+"""
+
+
 import sys
 
 solutions = []
