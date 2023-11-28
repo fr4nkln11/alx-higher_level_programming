@@ -11,7 +11,7 @@ import sys
 solutions = []
 
 
-def print_board(board: list[list[int]]) -> None:
+def print_board(board):
     """
     print out the NxN board
 
@@ -39,7 +39,7 @@ def print_board(board: list[list[int]]) -> None:
             print(("|---" * N) + "|")
 
 
-def print_cords(board: list[list[int]]) -> None:
+def print_cords(board):
     N = len(board)
     cords_list = []
 
@@ -49,10 +49,7 @@ def print_cords(board: list[list[int]]) -> None:
     print(cords_list)
 
 
-def checkVaild(
-        board: list[list[int]],
-        N: int,
-        row_pos: int, col_pos: int) -> bool:
+def checkVaild(board, N, row_pos, col_pos):
     """
     a function to check if the current position
     is not under attack
@@ -122,7 +119,7 @@ def checkVaild(
     return True
 
 
-def find_empty_row(board: list[list[int]]) -> None | int:
+def find_empty_row(board):
     """
     search for an empty row on the board
 
@@ -141,7 +138,7 @@ def find_empty_row(board: list[list[int]]) -> None | int:
     return None
 
 
-def backtrack(board: list[list[int]], starting_col: int = 0) -> bool:
+def backtrack(board, starting_col=0):
     """
     solve the puzzle with backtracking
 
@@ -181,7 +178,7 @@ def backtrack(board: list[list[int]], starting_col: int = 0) -> bool:
     return False
 
 
-def solve(N: int):
+def solve(N):
     """
     initiate the solving process
 
