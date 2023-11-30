@@ -208,7 +208,6 @@ if __name__ == "__main__":
 
     solve(N)
 
-
     for solution in solutions:
         print_cords(solution)
 
