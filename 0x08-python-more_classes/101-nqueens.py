@@ -158,12 +158,8 @@ def backtrack(board, starting_col=0):
     empty_row = find_empty_row(board)
 
     if empty_row is None:
-        solutions.append(board)
-        last_stop = board[0].index(1)
-
-        if last_stop < (N - 1):
-            board = [[0] * N for i in range(N)]
-            backtrack(board, last_stop + 1)
+        board_copy = [[e for e in row] for row in board]
+        solutions.append(board_copy)
         return True
 
     for col in range(starting_col, N):
@@ -172,7 +168,8 @@ def backtrack(board, starting_col=0):
 
             # if there are no more empty rows
             if backtrack(board):
-                return True
+                board[empty_row][col] = 0
+                continue
 
             board[empty_row][col] = 0
     return False
@@ -211,7 +208,8 @@ if __name__ == "__main__":
 
     solve(N)
 
+
     for solution in solutions:
-        # print_board(solution)
         print_cords(solution)
-        # print()
+
+    print("{} solutions".format(len(solutions)))
